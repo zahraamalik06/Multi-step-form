@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice 1A - Multi-Step Registration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Registration Form</h1>
+        
+        <div class="progress">
+            <div class="progress-step active" id="progress1"></div>
+            <div class="progress-step" id="progress2"></div>
+            <div class="progress-step" id="progress3"></div>
+        </div>
+
+        <!-- STEP 1 -->
+        <div id="step1">
+            <h2>Step 1: Personal Information</h2>
+            <form id="form1">
+                <label for="username">Username</label>
+                <input type="text" id="username" placeholder="At least 4 characters" autocomplete="off">
+                <div class="error-message" id="username-error">Username must be at least 4 characters</div>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="your@email.com" autocomplete="off">
+                <div class="error-message" id="email-error">Please enter a valid email</div>
+
+                <label for="age">Age</label>
+                <input type="number" id="age" placeholder="Must be 18 or older" autocomplete="off">
+                <div class="error-message" id="age-error">You must be at least 18 years old</div>
+
+                <button type="submit" id="submit--1">Next Step →</button>
+            </form>
+        </div>
+
+        <!-- STEP 2 -->
+        <div id="step2" class="hidden">
+            <h2>Step 2: Account Security</h2>
+            <form id="form2">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="At least 6 characters" autocomplete="off">
+                <div class="error-message" id="password-error">Password must be at least 6 characters</div>
+
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" placeholder="Repeat password" autocomplete="off">
+                <div class="error-message" id="confirmPassword-error">Passwords must match</div>
+
+                <label for="country">Country</label>
+                <select id="country">
+                    <option value="">-- Select your country --</option>
+                    <option value="Belgium">Belgium</option>
+                    <option value="Netherlands">Netherlands</option>
+                    <option value="Germany">Germany</option>
+                    <option value="France">France</option>
+                </select>
+                <div class="error-message" id="country-error">Please select a country</div>
+
+                <button type="submit" id="submit--2">Next Step →</button>
+            </form>
+        </div>
+
+        <!-- STEP 3 -->
+        <div id="step3" class="hidden">
+            <h2>Step 3: Skills & Preview</h2>
+            <form id="form3">
+                <label for="skill">Programming Skill Level</label>
+                <select id="skill">
+                    <option value="">-- Select your level --</option>
+                    <option value="beginner">Beginner</option>
+                    <option value="intermediate">Intermediate</option>
+                    <option value="advanced">Advanced</option>
+                    <option value="expert">Expert</option>
+                </select>
+                <div class="error-message" id="skill-error">Please select a skill level</div>
+
+                <div id="preview">
+                    <h3>Your Information:</h3>
+                    <p><strong>Username:</strong> <span id="preview-username"></span></p>
+                    <p><strong>Email:</strong> <span id="preview-email"></span></p>
+                    <p><strong>Age:</strong> <span id="preview-age"></span></p>
+                    <p><strong>Country:</strong> <span id="preview-country"></span></p>
+                    <p><strong>Skill Level:</strong> <span id="preview-skill"></span></p>
+                </div>
+
+                <button type="submit" id="submit--3">Complete Registration</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="main.js">
+        // YOUR JAVASCRIPT CODE HERE
+
+        /*
+        REQUIREMENTS:
+        
+        1. STEP 1 VALIDATION:
+           - Username: minimum 4 characters
+           - Email: must be valid email format (contains @ and .)
+           - Age: must be 18 or older
+           - Show appropriate error messages
+           - Add .error class to invalid fields
+           - Add .valid class to valid fields
+        
+        2. STEP 2 VALIDATION:
+           - Password: minimum 6 characters
+           - Confirm Password: must match password
+           - Country: must select one (not empty string)
+           - Same error/valid class behavior
+        
+        3. STEP 3 VALIDATION:
+           - Skill: must select one
+           - Update preview with all information from previous steps
+           - When skill is selected, add appropriate badge class to preview-skill span
+             (skill-beginner, skill-intermediate, skill-advanced, skill-expert)
+        
+        4. BONUS (+1):
+           - Real-time validation: remove error messages and classes as user types/selects
+           - Use 'input' event for text fields and 'change' event for selects
+        
+        5. PROGRESS BAR:
+           - Update progress bar as user moves through steps
+           - Add 'active' class to current step's progress indicator
+        
+        TIPS:
+        - Use event.preventDefault() on form submissions
+        - Store form data as you progress through steps
+        - Regular expression for email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+        */
+    </script>
+</body>
+</html>
